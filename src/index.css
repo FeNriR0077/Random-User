@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,700;0,800;1,300;1,400;1,600;1,700;1,800&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  font-family: 'Open Sans', sans-serif;
+  font-family: 'Work Sans', sans-serif;
+}
+
+body {
+  background-color: #D9E2EC;
+}
+
+.App{
+  width: 35%;
+  margin: 0 auto;
+  margin-top: 10rem;
+  text-align: center;
+}
+
+.user-container{
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 8px;
+  background-color: rgb(221, 245, 244);
+}
+
+.general-info {
+  padding-bottom: 1rem;
+  background-color: #14919B;
+  color: rgb(255, 255, 255);
+  border-bottom: 2px solid rgba(129, 129, 129, 0.322);
+}
+
+.image{
+  margin-block: -5rem .8rem;
+  padding: 2px;
+  border: 2px solid rgb(99, 168, 146);
+  border-radius: 50%;
+}
+
+.name{
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+.gender{
+  font-size: 1.2rem;
+  text-transform: capitalize;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-around;
+  background-color: rgb(196, 236, 223);
+  border-bottom: 2px solid rgba(129, 129, 129, 0.322);
+  font-size: 2rem;
+}
+
+.nav-btns{
+  margin:1rem ;
+  padding-bottom: .3rem;
+  background-color: inherit;
+  border-color: transparent;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.329);
+}
+
+.nav-btns:hover{
+  color: black;
+}
+
+.icons {
+  font-size: 2.2rem;
+  color: inherit;
+}
+
+.active {
+  color: rgb(0, 0, 0);
+  border-bottom: 3px solid black;
+}
+
+.details {
+  min-height: 130px;
+  text-align: center;
+}
+
+.title{
+  font-size: 1.3rem;
+  margin-top: 1rem;
+}
+
+.value {
+  font-weight: 600;
+}
+
+.refresh-btn {
+  margin-top: 1rem;
+  border-radius: 8px;
+  border: 1px solid black;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #067a85;
+  color: white;
+  cursor: pointer;
+}
+.refresh-btn:hover {
+  background-color: #0ca9b8;
+
+}
+
+
+@media screen and (max-width: 1000px) {
+  .App{
+    width: 60%;
+  }
+}
+@media screen and (max-width: 550px) {
+  .App{
+    width: 90%;
+  }
+}

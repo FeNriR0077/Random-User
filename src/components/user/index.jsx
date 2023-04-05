@@ -1,3 +1,3 @@
-import FetchUser from "./FetchUser";
+import FetchUser from "./fetchuser";
 
 export default FetchUser;

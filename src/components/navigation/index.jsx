@@ -1,5 +1,5 @@
 import { useState } from "react"
-import Details from "./Details";
+import Details from "../user/displayuser/Details";
 
 const Navigation = ({iconList, user}) => {
     const [isActive, setIsActive] = useState(1)

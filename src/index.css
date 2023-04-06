@@ -45,7 +45,7 @@ body {
   margin-block: -5rem .8rem;
   margin-left: 2rem;
   padding: 2px;
-  border: 2px solid rgb(255, 255, 255);
+  border: 2px solid white;
   border-radius: 50%;
 }
 .name{
@@ -104,7 +104,8 @@ body {
   width: fit-content;
   margin-bottom: 1rem;
   font-size: 1.4rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.205);
+  color: rgba(0, 0, 0, 0.76);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.596);
 }
 
 .content{
@@ -147,6 +148,8 @@ body {
 }
 .loading-image{
   width: 80%;
+  margin-top: 8rem;
+  text-align: center;
 }
 .error-message {
   color: rgb(255, 81, 81);
@@ -170,6 +173,10 @@ body {
     row-gap: 1rem;
     column-gap: 2rem;
     box-sizing: border-box;
+  }
+
+  .error-message {
+    font-size: 1rem;
   }
 }
 

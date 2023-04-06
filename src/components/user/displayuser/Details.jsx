@@ -1,3 +1,5 @@
+import { PropTypes } from "prop-types";
+
 const Details = ({user, isActive}) => {
 
     const {dob, location, phone, email, name, gender, registered, cell, login} = user
@@ -15,7 +17,6 @@ const Details = ({user, isActive}) => {
                 <div className="content">
                     <p className="title">Name: <span className="value">{first} {last}</span></p>
                     <p className="title">Date of Birth: <span className="value">{formattedDate}</span></p>
-
                     <p className="title">Gender: <span className="value capitalize">{gender}</span></p>
                     <p className="title">Age: <span className="value">{age}</span></p>
                     <p className="title">Registered Date: <span className="value">{formattedRegistrationDate}</span></p>
@@ -60,5 +61,24 @@ const Details = ({user, isActive}) => {
         );
     }
 }
- 
+Details.defaultProps = {
+    large: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png',
+    title: 'Mr',
+    first: 'Sam',
+    last: 'Lee',
+    city: 'Kathmandu',
+    country: 'Nepal',
+    username: 'user_name'
+}
+
+Details.propTypes = {
+    large: PropTypes.string,
+    title: PropTypes.string,
+    first: PropTypes.string,
+    last: PropTypes.string,
+    city: PropTypes.string,
+    country: PropTypes.string,
+    username: PropTypes.string,
+}
+
 export default Details;

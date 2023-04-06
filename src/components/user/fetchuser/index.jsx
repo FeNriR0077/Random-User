@@ -4,7 +4,7 @@ import DisplayUser from "../displayuser";
 import Loading from "../../utils";
 import {Error} from "../../utils";
 
-const url = "https://randomuser.me/api/"
+const url = "https://randomuser.me/aapi/"
 
 const FetchUser = () => {
     const [userData, setUserData] = useState(null)
@@ -18,6 +18,7 @@ const FetchUser = () => {
 
     useEffect(()=>{
         let ignore = true;
+        setError("")
         setLoading(true)
         
         const fetchUserData = async () => {
@@ -25,6 +26,8 @@ const FetchUser = () => {
                 setError("")
                 const response = await fetch(url);
                 const data = await response.json()
+                console.log(data.results)
+                console.log(ignore)
                 if (ignore){
                     setUserData(data.results)
                     setLoading(false)
@@ -32,7 +35,7 @@ const FetchUser = () => {
             } catch (error) {
                 console.log(error.message)
                 setError(error.message)
-            }
+            } 
         }
 
         fetchUserData();
@@ -44,11 +47,11 @@ const FetchUser = () => {
 
     return (
         <div>
-            <button type="button" disabled={loading ? "disabled" : ""} className="refresh-btn" onClick={handleRefreshButton}>
-                GET NEW USER <i className="fa-solid fa-plus"></i>
-            </button>
             {loading && <Loading />}
             {error && <Error errorMessage = {error}/>}
+            {!loading && <button type="button" disabled={loading ? "disabled" : ""} className="refresh-btn" onClick={handleRefreshButton}>
+                GET NEW USER <i className="fa-solid fa-plus"></i>
+            </button>}
             {!loading && <DisplayUser userData={userData} />}
         </div>
     );

@@ -1,3 +1,4 @@
+import { PropTypes } from "prop-types";
 import Navigation from "../../navigation";
 
 const iconList = [
@@ -48,5 +49,25 @@ const DisplayUser = ({ userData }) => {
     </>
   );
 };
+
+DisplayUser.defaultProps = {
+  large: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png',
+  title: 'Mr',
+  first: 'Sam',
+  last: 'Lee',
+  city: 'Kathmandu',
+  country: 'Nepal',
+  username: 'user_name'
+}
+
+DisplayUser.propTypes = {
+  large: PropTypes.string,
+  title: PropTypes.string,
+  first: PropTypes.string,
+  last: PropTypes.string,
+  city: PropTypes.string,
+  country: PropTypes.string,
+  username: PropTypes.string,
+}
 
 export default DisplayUser;

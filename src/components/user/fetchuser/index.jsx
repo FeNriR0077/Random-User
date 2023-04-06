@@ -4,7 +4,7 @@ import DisplayUser from "../displayuser";
 import Loading from "../../utils";
 import {Error} from "../../utils";
 
-const url = "https://randomuser.me/aapi/"
+const url = "https://randomuser.me/api/"
 
 const FetchUser = () => {
     const [userData, setUserData] = useState(null)

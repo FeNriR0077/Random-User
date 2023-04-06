@@ -1,74 +1,59 @@
-import { PropTypes } from "prop-types";
+import PropTypes from "prop-types";
+import FilterDetails from "./FilterDetails";
 
 const Details = ({user, isActive}) => {
+    let filteredDetails;
+    let heading;
 
     const {dob, location, phone, email, name, gender, registered, cell, login} = user
     const { first, last } = name;
     const { age, date } = dob;
-    const formattedDate = date.slice(0,10)
+    const formattedDateOfBirth = date.slice(0,10)
     const { city, postcode, country, street :{number: streetNumber, name:streetName}} = location;
     const formattedRegistrationDate = registered.date.slice(0,10)
     const {username, password} = login;
-    
+
     if (isActive === 1) {
-        return (
-            <div className="details">
-                <h2 className="heading">Personal Information: </h2>
-                <div className="content">
-                    <p className="title">Name: <span className="value">{first} {last}</span></p>
-                    <p className="title">Date of Birth: <span className="value">{formattedDate}</span></p>
-                    <p className="title">Gender: <span className="value capitalize">{gender}</span></p>
-                    <p className="title">Age: <span className="value">{age}</span></p>
-                    <p className="title">Registered Date: <span className="value">{formattedRegistrationDate}</span></p>
-                </div>
-            </div>
-        );
+        filteredDetails = [{Name: first+" "+last, key:0}, {"Date Of Birth": formattedDateOfBirth}, {Gender: gender}, {Age: age}, {"Registered Date": formattedRegistrationDate}]
+        heading = "Personal Information:";
     }
     if (isActive === 2) {
-        return (
-        <div className="details">
-            <h2 className="heading">Address: </h2>
-            <div className="content">
-                <p className="title">Postcode: <span className="value">{postcode}</span></p>
-                <p className="title">Street: <span className="value">{streetNumber} {streetName}</span></p>
-                <p className="title">City: <span className="value">{city}</span></p>
-                <p className="title">Country: <span className="value">{country}</span></p>
-            </div>  
-          </div>
-        );
+        filteredDetails = [ {Psostcode: postcode}, {"Street Number": streetNumber}, {Street: streetName}, {City: city}, {Country: country}]
+        heading="Address:"
     }
-    if (isActive === 3) {
-        return (
-        <div className="details">
-            <h2 className="heading">Contact: </h2>
-            <div className="content">
-            <p className="title">Cell number: <span className="value">{cell}</span></p>
-            <p className="title">Phone number: <span className="value">{phone}</span></p>
-            </div>    
-        </div>
-        );
+    if(isActive === 3) {
+        filteredDetails = [{Cell: cell},{Phone: phone}]
+        heading="Contact:";
     }
     if (isActive === 4) {
-        return (
-        <div className="details">
-            <h2 className="heading">Email/Credentials: </h2>
-            <div className="content">
-            <p className="title">Email: <span className="value">{email}</span></p>
-            <p className="title">UserName: <span className="value">{username}</span></p>
-            <p className="title">Password: <span className="value">{password}</span></p>
-            </div>
-        </div>
-        );
+        filteredDetails = [ {Email: email}, {UserName: username}, {Password: password}]
+        heading = "Email/Credentials:";
     }
+
+    return (
+        <>
+            {filteredDetails && <FilterDetails heading={heading} filteredDetails={filteredDetails} />}
+        </>
+    )
 }
+
 Details.defaultProps = {
     large: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png',
     title: 'Mr',
     first: 'Sam',
     last: 'Lee',
+    formattedDateOfBirth: "2020-03-22",
+    age: 20,
+    formattedRegistrationDate: "2020-01-22",
+    postcode: 12345,
+    streetNumber: 10,
+    street: "Lane 1",
     city: 'Kathmandu',
     country: 'Nepal',
-    username: 'user_name'
+    username: 'user_name',
+    password: 'P@ssW0rD',
+    isActive: 1,
+    heading: "Personal Information"
 }
 
 Details.propTypes = {
@@ -76,9 +61,18 @@ Details.propTypes = {
     title: PropTypes.string,
     first: PropTypes.string,
     last: PropTypes.string,
+    formattedDateOfBirth: PropTypes.string,
+    age: PropTypes.number,
+    formattedRegistrationDate: PropTypes.string,
+    postcode: PropTypes.number,
+    streetNumber: PropTypes.number,
+    street: PropTypes.string,
     city: PropTypes.string,
     country: PropTypes.string,
     username: PropTypes.string,
+    password: PropTypes.string,
+    isActive: PropTypes.number,
+    heading: PropTypes.string,
 }
 
 export default Details;

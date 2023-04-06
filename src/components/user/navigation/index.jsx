@@ -1,5 +1,6 @@
-import { useState } from "react"
-import Details from "../user/displayuser/Details";
+import { useState } from "react";
+import PropTypes from "prop-types";
+import {Details} from "../displayuser";
 
 const Navigation = ({iconList, user}) => {
     const [isActive, setIsActive] = useState(1)
@@ -21,9 +22,14 @@ const Navigation = ({iconList, user}) => {
                 })}
             </div>
             
-            <Details user={user} isActive={isActive} />
+            {user && <Details user={user} isActive={isActive} />}
         </>
     )
+}
+
+Navigation.propTypes = {
+    user: PropTypes.object,
+    iconList: PropTypes.array,
 }
  
 export default Navigation;

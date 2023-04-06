@@ -1,10 +1,9 @@
-import { useState } from "react";
-import { useEffect } from "react";
-import DisplayUser from "../displayuser";
+import { useState, useEffect  } from "react";
 import Loading from "../../utils";
 import {Error} from "../../utils";
+import DisplayUser from "../displayuser";
 
-const url = "https://randomuser.me/api/"
+const url = "https://randomuser.me/api/";
 
 const FetchUser = () => {
     const [userData, setUserData] = useState(null)
@@ -26,8 +25,7 @@ const FetchUser = () => {
                 setError("")
                 const response = await fetch(url);
                 const data = await response.json()
-                console.log(data.results)
-                console.log(ignore)
+
                 if (ignore){
                     setUserData(data.results)
                     setLoading(false)
@@ -42,8 +40,6 @@ const FetchUser = () => {
 
         return () => ignore=false;
     },[refresh])
-
-    console.log(userData)
 
     return (
         <div>

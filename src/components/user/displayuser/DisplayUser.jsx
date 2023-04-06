@@ -1,5 +1,5 @@
-import { PropTypes } from "prop-types";
-import Navigation from "../../navigation";
+import PropTypes from "prop-types";
+import Navigation from "../navigation";
 
 const iconList = [
   {icon: <i className="fa-solid fa-user icons"></i>, id: 1},
@@ -11,10 +11,9 @@ const iconList = [
 const DisplayUser = ({ userData }) => {
   return (
     <>
-      {userData.map((user) => {
+      {userData && userData.map((user) => {
         const {
           name,
-          id: { value },
           picture,
           gender,
           location,
@@ -25,12 +24,12 @@ const DisplayUser = ({ userData }) => {
         const { title, first, last } = name;
         const { large} = picture;
         const { city, country } = location;
-        const {username} = login;
+        const {uuid, username} = login;
 
-        console.log(user);
         return (
-          <div className="user-container" key={value}>
+          <div className="user-container" key={uuid}>
             <div className="profile-background"></div>
+
             <div className="general-info">
               <img src={large} className="image" />
 
@@ -38,11 +37,16 @@ const DisplayUser = ({ userData }) => {
                 {title} {first} {last}
               </p>
 
-              <p className="city-country">{city}, {country}</p>
-              <p className="username">@{username}</p>
+              <p className="city-country">
+                {city}, {country}
+              </p>
+
+              <p className="username">
+                @{username}
+              </p>
             </div>
 
-            <Navigation iconList={iconList} user={user}/>
+            {user && <Navigation iconList={iconList} user={user}/>}
           </div>
         );
       })}

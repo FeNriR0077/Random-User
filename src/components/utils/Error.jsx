@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 const Error = ({errorMessage}) => {
     return (
         <div className="error-message">
@@ -6,5 +8,13 @@ const Error = ({errorMessage}) => {
         </div>
     );
 }
- 
+
+Error.defaultProps = {
+    errorMessage: "Error"
+}
+
+Error.propTypes = {
+    errorMessage: PropTypes.string,
+}
+
 export default Error;

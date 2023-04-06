@@ -11,9 +11,7 @@ const FilterDetails = ({heading, filteredDetails}) => {
                     const value = Object.values(data)
 
                     return (
-                        <>
-                            <p className="title" key={index}>{title}: <span className="value">{value}</span></p>
-                        </>
+                        <p className="title" key={index}>{title}: <span className="value">{value}</span></p>
                     )
                 })}
             </div>

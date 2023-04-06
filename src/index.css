@@ -2,7 +2,8 @@
 
 :root {
   --primary-color: #f8fafb;
-  --secondary-color: #e7eff3;
+  --secondary-color: white;
+  --nav-background-color: #e7eff3;
 }
 
 * {
@@ -30,7 +31,7 @@ body {
   padding-bottom: 2rem;
   border-radius: 8px;
   box-sizing: border-box;
-  background-color: white;
+  background-color: var(--secondary-color);
   box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
 }
 
@@ -73,7 +74,7 @@ body {
 .nav-container {
   display: flex;
   justify-content: space-around;
-  background-color: var(--secondary-color);
+  background-color: var(--nav-background-color);
 }
 
 .nav-btns{

@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import Navigation from "../navigation";
+import { useState } from "react";
 
 const iconList = [
   {icon: <i className="fa-solid fa-user icons"></i>, id: 1},
@@ -25,6 +26,10 @@ const DisplayUser = ({ userData }) => {
         const { large} = picture;
         const { city, country } = location;
         const {uuid, username} = login;
+
+        if (name) {
+          document.title = `${first} ${last}`
+        }
 
         return (
           <div className="user-container" key={uuid}>
